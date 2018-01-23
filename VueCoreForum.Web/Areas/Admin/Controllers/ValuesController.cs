@@ -1,21 +1,21 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace VueCoreForum.Web.Controllers
+namespace VueCoreForum.Web.Areas.Admin.Controllers
 {
-    [Route("api/[controller]")]
-    public class SampleDataController : Controller
+    [Route("api/admin/[controller]")]
+    public class ValuesController : Controller
     {
         private static string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "A Freezing", "A Bracing", "A Chilly", "A Cool", "A Mild", "A Warm", "A Balmy", "A Hot", "A Sweltering", "A Scorching"
         };
 
-        [HttpGet("[action]")]
-        public IEnumerable<WeatherForecast> WeatherForecasts()
+        public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -36,7 +36,7 @@ namespace VueCoreForum.Web.Controllers
             {
                 get
                 {
-                    return 32 + (int)(TemperatureC / 0.5556);
+                    return 35 + (int)(TemperatureC / 0.5556);
                 }
             }
         }
